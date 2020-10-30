@@ -20,15 +20,15 @@ namespace AnimalShelter.Controllers
     }
 
     [HttpGet("Random")]
-    public ActionResult<Cat> Random()
+    public ActionResult<IEnumerable<Cat>> Random()
     {
-      var query = _db.Cats.Count();
+      var query = _db.Cats.AsQueryable(); //presents a list of Cats to "query"
 
       Random rand = new Random();
-      int r = rand.Next(query);
-      // var randomCat = query[r];
-      string randomCat = r.ToString();
-      return Ok(randomCat); 
+      int r = rand.Next(query.Count());
+      var randomCat = query[r];
+    
+      return randomCat.ToList();
     }
 
     [HttpGet]
@@ -93,3 +93,15 @@ namespace AnimalShelter.Controllers
     }
   }
 }
+
+//  [HttpGet("Random")]
+//     public ActionResult<Cat> Random()
+//     {
+//       var query = _db.Cats.Count();
+
+//       Random rand = new Random();
+//       int r = rand.Next(query);
+//       // var randomCat = query[r];
+//       string randomCat = r.ToString();
+//       return Ok(randomCat); 
+//     }
