@@ -201,7 +201,7 @@ To use default, _don't include_ `limit` and `start` or set them equal to zero.
 ### Endpoints
 Base URL: `https://localhost:5000`
 
-#### HTTP Request Structure
+#### HTTP General Request Structure
 ```
 GET /api/{component}
 POST /api/{component}
@@ -210,129 +210,94 @@ PUT /api/{component}/{id}
 DELETE /api/{component}/{id}
 ```
 
-#### Example Query
-```
-https://localhost:5000/api/recipe/131
-```
-
-#### Sample JSON Response
-```
-{
-    "Id": 131,
-    "Name": "Spiced Cold Brew",
-    "Ingredient": "Cinnamon, Nutmeg, Cayenne",
-    "Recipe Text: "Coffee is the answer to all solutions in the known universe as proven by leading scientists.",
-}
-```
-
 ..........................................................................................
 
-### Coffee Beans
-Access information on coffee beans from around the world.
+### Cats
+Access information on cats available for adoption at the shelter.
 
 #### HTTP Request
 ```
-GET /api/bean
-POST /api/bean
-GET /api/bean/{id}
-PUT /api/bean/{id}
-DELETE /api/bean/{id}
+GET /api/Cats
+POST /api/Cats
+GET /api/Cats/{id}
+PUT /api/Cats/{id}
+DELETE /api/Cats/{id}
 ```
 
 #### Path Parameters
 | Parameter | Type | Default | Required | Description |
 | :---: | :---: | :---: | :---: | --- |
-| name | string | none | false | Return matches by name.
-| origin | string | none | false | Return any bean from a specific country or region of origin. |
-| flavor | string | none | false | Return bean matches with a specific flavor profile. |
+| Name | string | none | True | Return cat matches by name.
+| Breed | string | none | True | Return cat matches by breed. |
+| Color | string | none | True | Return cat matches by color. |
+| Age | int | none | True| Return cat matches by age. |
+| Gender | string | none | True | Return cat matches by gender. |
 
-#### Example Query
+#### Example Query 
 ```
-https://localhost:5000/api/bean/?origin=brazil&flavor=robust
+http://localhost:5000/api/Cats/?gender=Male
 ```
 
 #### Sample JSON Response
 ```
 {
-    "Id": 114,
-    "Name": "Café Saboroso",
-    "Origin": "Brazil",
-    "Flavor: "Sweet, Cherry, Robust"
+    "catId": 2,
+    "name": "George",
+    "breed": "Ragamuffin",
+    "color": "Grey",
+    "age": 10,
+    "gender": "Male"
 }
 ```
 
 ..........................................................................................
 
-### Beverages
-Access information about popular coffee beverages.
+### Dogs
+Access information on cats available for adoption at the shelter.
 
 #### HTTP Request
 ```
-GET /api/beverage
-POST /api/beverage
-GET /api/beverage/{id}
-PUT /api/beverage/{id}
-DELETE /api/beverage/{id}
+GET /api/Dogs
+POST /api/Dogs
+GET /api/Dogs/{id}
+PUT /api/Dogs/{id}
+DELETE /api/Dogs/{id}
 ```
 
 #### Path Parameters
 | Parameter | Type | Default | Required | Description |
 | :---: | :---: | :---: | :---: | --- |
-| name | string | none | false | Return matches by name.
-| temp | string | none | false | Return beverage matches with a specific served temperature. |
-| topping | string | none | false | Return beverage matches with a specific topping. |
-| year | int | none | false | Return beverage matches with a specific year of invention. |
+| Name | string | none | True | Return dog matches by name.
+| Breed | string | none | True | Return dog matches by breed. |
+| Color | string | none | True | Return dog matches by color. |
+| Age | int | none | True| Return dog matches by age. |
+| Gender | string | none | True | Return dog matches by gender. |
 
 #### Example Query
 ```
-https://localhost:5000/api/beverage/?name=latte&temp=iced&year=1840
+http://localhost:5000/api/Dogs/?breed=Labrador
 ```
 
 #### Sample JSON Response
 ```
-{
-    "Id": 33,
-    "Name": "Iced Latte",
-    "Temp": "Iced",
-    "Topping: "Wipped Cream",
-    "Year": 1840
-}
+ {
+        "dogId": 6,
+        "name": "Comet",
+        "breed": "Labrador",
+        "color": "Yellow",
+        "age": 7,
+        "gender": "Male"
+    },
+    {
+        "dogId": 7,
+        "name": "Lizzie",
+        "breed": "Labrador",
+        "color": "Yellow",
+        "age": 10,
+        "gender": "Female"
+    }
 ```
 
-..........................................................................................
-
-### Recipes
-Access recipes to recreate popular coffee beverages.
-
-#### HTTP Request
-```
-GET /api/recipe
-POST /api/recipe
-GET /api/recipe/{id}
-PUT /api/recipe/{id}
-DELETE /api/recipe/{id}
-```
-
-#### Path Parameters
-| Parameter | Type | Default | Required | Description |
-| :---: | :---: | :---: | :---: | --- |
-| name | string | none | false | Return matches by name.
-| ingredient | string | none | false | Return any recipe with a specific ingredient. |
-
-#### Example Query
-```
-https://localhost:5000/api/recipe/?name=latte&ingredient=chocolate
-```
-
-#### Sample JSON Response
-```
-{
-    "Id": 52,
-    "Name": "Mocha Latte",
-    "Ingredient": "Chocolate",
-    "Recipe Text: "Make good coffee, add chocolate, crash after experiencing the awesome power of both.",
-}
-```
 
 ------------------------------
 
