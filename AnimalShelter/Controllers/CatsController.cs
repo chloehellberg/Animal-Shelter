@@ -3,6 +3,7 @@ using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using AnimalShelter.Models;
+using System;
 
 namespace AnimalShelter.Controllers
 {
@@ -16,6 +17,17 @@ namespace AnimalShelter.Controllers
     public CatsController(AnimalShelterContext db)
     {
       _db = db;
+    }
+
+    [HttpGet("RANDOM")]
+    public ActionResult<IEnumerable<Cat>> Random()
+    {
+      // var query = _db.Cats.AsQueryable();
+      
+      Random rand = new Random();
+      int randomCat = rand.Next(_db.Cats.AsQueryable());
+      // var x = quotations[randomCat];
+      return randomCat; 
     }
 
     [HttpGet]
