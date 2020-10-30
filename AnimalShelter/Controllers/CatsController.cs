@@ -4,8 +4,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using AnimalShelter.Models;
 using System;
-using System.Net.Http;
-using System.Threading.Tasks;
 
 namespace AnimalShelter.Controllers
 {
@@ -31,7 +29,6 @@ namespace AnimalShelter.Controllers
       // var randomCat = countCatList[r];
       return Ok(r); 
     }
-
 
     [HttpGet]
     public ActionResult<IEnumerable<Cat>> Get(string breed, string gender, string name, int page, int size)
