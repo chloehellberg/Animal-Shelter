@@ -59,7 +59,7 @@ An API for a local Animal Shelter that lists/tracks the available cats and dogs 
 
 ### 🦠 Known Bugs
 
-* Authoriziation not set up on client facing side of application, therefore it is not secure. If you happen to encounter other bugs, please notify the main contributors.
+* Random path currently not working on Cats/Dogs Controller - only returns a random number based on the CatId/DogId and doesn't return entire Cat object. If you happen to encounter other bugs, please notify the main contributors.
 
 ### 🛠 Built With
 * [Visual Studio Code](https://code.visualstudio.com/)
@@ -197,6 +197,7 @@ Access information on cats available for adoption at the shelter.
 GET /api/Cats
 POST /api/Cats
 GET /api/Cats/{id}
+GET /api/Cats/Random
 PUT /api/Cats/{id}
 DELETE /api/Cats/{id}
 ```
@@ -236,6 +237,7 @@ Access information on cats available for adoption at the shelter.
 ```
 GET /api/Dogs
 POST /api/Dogs
+GET /api/Dogs/Random
 GET /api/Dogs/{id}
 PUT /api/Dogs/{id}
 DELETE /api/Dogs/{id}
