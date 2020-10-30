@@ -1,5 +1,6 @@
 -Check to see if any files need to be removed if they are not being used
 -Check to see if any using statements can be removed
+-update at pagination
 
 <br>
 <p align="center">
@@ -61,11 +62,11 @@
 ## 🌐 About the Project
 
 ### 📖 Description
-An API that functions as a recipe archive for coffee drinks from around the world. It utilizes RESTful principles, version control, pagination, and has integrated authentication to keep the API Read-Only for all users except administrators. The user is able to see the in-use version of the API when using Postman.
+An API for a local Animal Shelter that lists/tracks the available cats and dogs for adoption. API utilizes RESTful principles, version control, pagination, and has integrated authentication to keep the API Read-Only for all users except administrators. The user is able to see the in-use version of the API when using Postman.
 
 ### 🦠 Known Bugs
 
-* There are no known bugs at this time. If you happen to encounter one, please notify the main contributors.
+* Authoriziation not set up on client facing side of application, therefore it is not secure. If you happen to encounter other bugs, please notify the main contributors.
 
 ### 🛠 Built With
 * [Visual Studio Code](https://code.visualstudio.com/)
@@ -114,25 +115,25 @@ An API that functions as a recipe archive for coffee drinks from around the worl
 
   #### Cloning
 
-  1) Navigate to the [LondresRi CoffeeTracker API repository here](https://github.com/LondresRi/CoffeeTrackerAPI.Solution-API-ReadMe-Example).
+  1) Navigate to the [Animal-Shelteer API repository here](https://github.com/chloehellberg/Animal-Shelter).
   2) Click 'Clone or download' to reveal the HTTPS url ending with .git and the 'Download ZIP' option.
   3) Open up your system Terminal or GitBash, navigate to your desktop with the command: `cd Desktop`, or whichever location suits you best.
-  4) Clone the repository to your desktop: `$ git clone https://github.com/LondresRi/CoffeeTrackerAPI.Solution.git`
-  5) Run the command `cd CoffeeTrackerAPI.Solution` to enter into the project directory.
+  4) Clone the repository to your desktop: `$ git clone https://github.com/chloehellberg/Animal-Shelter.git`
+  5) Run the command `cd Animal-Shelter` to enter into the project directory.
   6) View or Edit:
       * Code Editor - Run the command `atom .` or `code .` to open the project in Atom or VisualStudio Code respectively for review and editing.
       * Text Editor - Open by double clicking on any of the files to open in a text editor.
 
   #### Download
 
-  1) Navigate to the [LondresRi CoffeeTracker API repository here](https://github.com/LondresRi/CoffeeTrackerAPI.Solution-API-ReadMe-Example).
+  1) Navigate to the [Animal-Shelteer API repository here](https://github.com/chloehellberg/Animal-Shelter).
   2) Click 'Clone or download' to reveal the HTTPS url ending with .git and the 'Download ZIP' option.
   3) Click 'Download ZIP' and unextract.
   4) Open by double clicking on any of the files to open in a text editor.
 
   #### AppSettings
 
-  1) Create a new file in the CoffeeTrackerAPI.Solution/CoffeeTrackerAPI directory named `appsettings.json`
+  1) Create a new file in the AnimalShelter.Solution/AnimalShelter directory named `appsettings.json`
   2) Add in the following code snippet to the new appsettings.json file:
   
   ```
@@ -144,19 +145,19 @@ An API that functions as a recipe archive for coffee drinks from around the worl
     },
     "AllowedHosts": "*",
     "ConnectionStrings": {
-        "DefaultConnection": "Server=localhost;Port=3306;database=coffee_tracker_api;uid=root;pwd=YourPassword;"
+        "DefaultConnection": "Server=localhost;Port=3306;database=animal_shelter;uid=root;pwd=YourPassword;"
     }
 }
   ```
   3) Change the server, port, and user id as necessary. Replace 'YourPassword' with relevant MySQL password (set at installation of MySQL).
 
   #### Database
-  1) Navigate to CoffeeTrackerAPI.Solution/CoffeeTrackerAPI directory using the MacOS Terminal or Windows Powershell (e.g. `cd Desktop/CoffeeTrackerAPI.Solution/CoffeeTrackerAPI`).
+  1) Navigate to AnimalShelter.Solution/AnimalShelter directory using the MacOS Terminal or Windows Powershell (e.g. `cd Desktop/AnimalShelter.Solution/AnimalShelter`).
   2) Run the command `dotnet ef database update` to generate the database through Entity Framework Core.
   3) (Optional) To update the database with any changes to the code, run the command `dotnet ef migrations add <MigrationsName>` which will use Entity Framework Core's code-first principle to generate a database update. After, run the previous command `dotnet ef database update` to update the database.
 
   #### Launch the API
-  1) Navigate to CoffeeTrackerAPI.Solution/CoffeeTrackerAPI directory using the MacOS Terminal or Windows Powershell (e.g. `cd Desktop/CoffeeTrackerAPI.Solution/CoffeeTrackerAPI`).
+  1) Navigate to AnimalShelter.Solution/AnimalShelter directory using the MacOS Terminal or Windows Powershell (e.g. `cd Desktop/AnimalShelter.Solution/AnimalShelter`).
   2) Run the command `dotnet run` to have access to the API in Postman or browser.
 
 ------------------------------
@@ -165,7 +166,7 @@ An API that functions as a recipe archive for coffee drinks from around the worl
 Explore the API endpoints in Postman or a browser. You will not be able to utilize authentication in a browser.
 
 ### Using Swagger Documentation 
-To explore the CoffeeTracker API with NSwag, launch the project using `dotnet run` with the Terminal or Powershell, and input the following URL into your browser: `http://localhost:5000/swagger`
+To explore the Animal Shelter API with NSwag, launch the project using `dotnet run` with the Terminal or Powershell, and input the following URL into your browser: `http://localhost:5000/swagger`
 
 ### Using the JSON Web Token
 In order to be authorized to use the POST, PUT, DELETE functionality of the API, please authenticate yourself through Postman.
@@ -173,7 +174,7 @@ In order to be authorized to use the POST, PUT, DELETE functionality of the API,
 * Add the following query to the request as raw data in the Body tab:
 ```
 {
-    "UserName": "CoffeeAdmin",
+    "UserName": "AnimalShelterAdmin",
     "Password": "epicodus"
 }
 ```
@@ -184,7 +185,7 @@ CORS is a W3C standard that allows a server to relax the same-origin policy. It 
 For more information or to see how CORS functions, see the [Microsoft documentation](https://docs.microsoft.com/en-us/aspnet/core/security/cors?view=aspnetcore-2.2#how-cors).
 
 ### Note on Pagination
-The CoffeeTracker API returns a default of 25 results per page at a time, up to a maximum of 1000.
+The Animal Shelter returns a default of 2 results per page at a time.
 
 To modify this, use the query parameters `limit` and `start` to alter the response results displayed. The `limit` parameter will specify how many results will be displayed, and the `start` parameter will specify which element in the response the limit should start counting.
 
@@ -339,7 +340,7 @@ https://localhost:5000/api/recipe/?name=latte&ingredient=chocolate
 
 | Author | GitHub | Email |
 |--------|:------:|:-----:|
-| [Shawn Lunsford](https://linkedin.com/in/lunsfordsk) | [LondresRi](https://github.com/LondresRi) |  [lunsford.sk@gmail.com](mailto:lunsford.sk@gmail.com) |
+| [Chloe Hellberg](https://linkedin.com/in/chloehellberg) | [chloehellberg](https://github.com/chloehellberg) |  [chloe.hellberg@gmail.com](mailto:chloe.hellberg@gmail.com) |
 
 ------------------------------
 
@@ -348,19 +349,17 @@ https://localhost:5000/api/recipe/?name=latte&ingredient=chocolate
 If you have any feedback or concerns, please contact one of the contributors.
 
 <p>
-    <a href="https://github.com/LondresRi/CoffeeTrackerAPI.Solution-API-ReadMe-Example/issues">Report Bug</a> ·
-    <a href="https://github.com/LondresRi/CoffeeTrackerAPI.Solution-API-ReadMe-Example/issues">Request Feature</a>
+    <a href="https://github.com/chloehellberg/Animal-Shelter/issues">Report Bug</a> ·
+    <a href="https://github.com/chloehellberg/Animal-Shelter/issues">Request Feature</a>
 </p>
 
 ------------------------------
 
 ### ⚖️ License
 
-This project is licensed under the [MIT License](https://opensource.org/licenses/MIT). Copyright (C) 2020 Shawn Lunsford. All Rights Reserved.
+This project is licensed under the [MIT License](https://opensource.org/licenses/MIT). Copyright (C) 2020 Chloe Hellberg. All Rights Reserved.
 ```
 MIT License
-
-Copyright (c) 2020 Shawn Lunsford.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -383,15 +382,6 @@ SOFTWARE.
 
 ------------------------------
 
-### 🌟 Acknowledgments
 
-#### [Epicodus](https://www.epicodus.com/)
->"A school for tech careers... to help people learn the skills they need to get great jobs."
-
-#### [The Internet](https://webfoundation.org/)
-> "...the first thing that humanity has built that humanity doesn't understand..."
-> - Eric Schmidt, Google (Alphabet Inc.)
-
-------------------------------
 
 <center><a href="#">Return to Top</a></center>
