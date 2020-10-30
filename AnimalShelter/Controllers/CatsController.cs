@@ -21,35 +21,16 @@ namespace AnimalShelter.Controllers
       _db = db;
     }
 
-  //  [HttpGet("Random")]
-  //   public ActionResult<Cat> Random()
-  //   {
-  //     int countCatList = _db.Cats.Count();
-
-  //     Random rand = new Random();
-  //     int r = rand.Next(1, countCatList);
-  //     // var randomCat = countCatList[r];
-  //     return Ok(r); 
-  //   }
-
-  [HttpGet("Random")]
-  public async Task<ActionResult<Cat>> Random()
-  {
-    using(HttpClient client = new HttpClient())
+   [HttpGet("Random")]
+    public ActionResult<Cat> Random()
     {
-      var result = await client.GetAsync("https://localhost:5000/api/cats/random");
-      if (result.IsSuccessStatusCode)
-      {
-        var catListString = await result.Content.ReadAsStringAsync();
-        var catList = Newtonsoft.Json.JsonConvert.DeserializeObject<IEnumerable<Cat>>(catListString);
-        return catList.ElementAt(new Random().Next(0, catList.Count() - 1));
-      }
-      else
-      {
-        return NotFound();
-      }
+      int countCatList = _db.Cats.Count();
+
+      Random rand = new Random();
+      int r = rand.Next(1, countCatList);
+      // var randomCat = countCatList[r];
+      return Ok(r); 
     }
-  }
 
 
     [HttpGet]
