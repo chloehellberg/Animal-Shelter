@@ -1,7 +1,5 @@
-<br>
-<p align="center">
-  <u><big>|| <b>Animal Shelter API</b> ||</big></u>
-</p>
+# Animal Shelter API
+
 <p align="center">
     <!-- Project Avatar/Logo -->
     <br>
