@@ -180,21 +180,18 @@ In order to be authorized to use the POST, PUT, DELETE functionality of the API,
 ```
 * The token will be generated in the response. Copy and paste it as the Token paramenter in the Authorization tab.
 
-### Note on CORS
-CORS is a W3C standard that allows a server to relax the same-origin policy. It is not a security feature, CORS relaxes security. It allows a server to explicitly allow some cross-origin requests while rejecting others. An API is not safer by allowing CORS.
-For more information or to see how CORS functions, see the [Microsoft documentation](https://docs.microsoft.com/en-us/aspnet/core/security/cors?view=aspnetcore-2.2#how-cors).
 
 ### Note on Pagination
-The Animal Shelter returns a default of 2 results per page at a time.
+The Animal Shelter can return a default of 2 results per page at a time, and results can be searched by page if "../?page=1" is included at end of GET call.
 
-To modify this, use the query parameters `limit` and `start` to alter the response results displayed. The `limit` parameter will specify how many results will be displayed, and the `start` parameter will specify which element in the response the limit should start counting.
+To modify this, use the query parameters `page` to alter the response results displayed. The `page` parameter will only display 2 results per page and you must specify calls on specific pages to view additional results.
 
 #### Example Query
 ```
-https://localhost:5000/api/beverage/?name=mocha&limit=200&start=20
+http://localhost:5000/api/cats/?page=1
 ```
 
-To use default, _don't include_ `limit` and `start` or set them equal to zero.
+To use default, _don't include_ `page` or set it equal to zero.
 
 ..........................................................................................
 
