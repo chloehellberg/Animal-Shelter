@@ -22,7 +22,6 @@ namespace AnimalShelter.Models
           new Cat { CatId = 4, Name = "White Shoes", Breed = "Ragamuffin", Color = "Orange/White", Age = 4, Gender = "Female" },
           new Cat { CatId = 5, Name = "Peachy Cat", Breed = "Ragamuffin", Color = "Orange", Age = 1, Gender = "Female" }
       );
-
       builder.Entity<Dog>()
       .HasData(
           new Dog { DogId = 6, Name = "Comet", Breed = "Labrador", Color = "Yellow", Age = 7, Gender = "Male" },
@@ -31,7 +30,6 @@ namespace AnimalShelter.Models
           new Dog { DogId = 9, Name = "Ruffin", Breed = "Unknown", Color = "Black/Grey", Age = 10, Gender = "Male" },
           new Dog { DogId = 10, Name = "Sir", Breed = "Rottweiler", Color = "Black/Brown", Age = 6, Gender = "Male" }
       );
-  
     }
   }
 }
