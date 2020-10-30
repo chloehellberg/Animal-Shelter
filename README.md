@@ -1,6 +1,3 @@
--Check to see if any files need to be removed if they are not being used
--Check to see if any using statements can be removed
-
 <br>
 <p align="center">
   <u><big>|| <b>Animal Shelter API</b> ||</big></u>
@@ -29,7 +26,7 @@
 </p>
 
 <p align="center">
-  <small>Created October 30th, 2020.</small>
+  <small>Created October 30th, 2020, Version 1.0</small>
 </p>
 
 <!-- Project Links -->
@@ -165,19 +162,6 @@ Explore the API endpoints in Postman or a browser. You will not be able to utili
 
 ### Using Swagger Documentation 
 To explore the Animal Shelter API with Swagger and easily access API endpoints, launch the project using `dotnet run` with the Terminal or Powershell, and input the following URL into your browser: `http://localhost:5000/swagger`
-
-### Using the JSON Web Token
-In order to be authorized to use the POST, PUT, DELETE functionality of the API, please authenticate yourself through Postman.
-* Open Postman and create a POST request using the URL: `http://localhost:5000/api/users/authenticate`
-* Add the following query to the request as raw data in the Body tab:
-```
-{
-    "UserName": "AnimalShelterAdmin",
-    "Password": "epicodus"
-}
-```
-* The token will be generated in the response. Copy and paste it as the Token paramenter in the Authorization tab.
-
 
 ### Note on Pagination
 The Animal Shelter can return a default of 2 results per page at a time, and results can be searched by page if "../?page=1" is included at end of GET call.
