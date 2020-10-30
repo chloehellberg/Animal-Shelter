@@ -1,6 +1,5 @@
 -Check to see if any files need to be removed if they are not being used
 -Check to see if any using statements can be removed
--update at pagination
 
 <br>
 <p align="center">
@@ -55,7 +54,6 @@
     * <a href="#🤝-contributors">Contributors</a>
     * <a href="#✉️-contact-and-support">Contact</a>
     * <a href="#⚖️-license">License</a>
-    * <a href="#🌟-acknowledgements">Acknowledgements</a>
     
 ------------------------------
 
@@ -166,7 +164,7 @@ An API for a local Animal Shelter that lists/tracks the available cats and dogs 
 Explore the API endpoints in Postman or a browser. You will not be able to utilize authentication in a browser.
 
 ### Using Swagger Documentation 
-To explore the Animal Shelter API with NSwag, launch the project using `dotnet run` with the Terminal or Powershell, and input the following URL into your browser: `http://localhost:5000/swagger`
+To explore the Animal Shelter API with Swagger and easily access API endpoints, launch the project using `dotnet run` with the Terminal or Powershell, and input the following URL into your browser: `http://localhost:5000/swagger`
 
 ### Using the JSON Web Token
 In order to be authorized to use the POST, PUT, DELETE functionality of the API, please authenticate yourself through Postman.
@@ -343,7 +341,5 @@ SOFTWARE.
 ```
 
 ------------------------------
-
-
 
 <center><a href="#">Return to Top</a></center>
