@@ -19,15 +19,16 @@ namespace AnimalShelter.Controllers
       _db = db;
     }
 
-    [HttpGet("RANDOM")]
-    public ActionResult<IEnumerable<Cat>> Random()
+    [HttpGet("Random")]
+    public ActionResult<Cat> Random()
     {
-      // var query = _db.Cats.AsQueryable();
-      
+      var query = _db.Cats.Count();
+
       Random rand = new Random();
-      int randomCat = rand.Next(_db.Cats.AsQueryable());
-      // var x = quotations[randomCat];
-      return randomCat; 
+      int r = rand.Next(query);
+      // var randomCat = query[r];
+      string randomCat = r.ToString();
+      return Ok(randomCat); 
     }
 
     [HttpGet]
