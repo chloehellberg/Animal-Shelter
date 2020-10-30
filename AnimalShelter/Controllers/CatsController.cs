@@ -4,6 +4,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using AnimalShelter.Models;
 using System;
+using System.Net.Http;
+using System.Threading.Tasks;
 
 namespace AnimalShelter.Controllers
 {
@@ -19,17 +21,36 @@ namespace AnimalShelter.Controllers
       _db = db;
     }
 
-    [HttpGet("Random")]
-    public ActionResult<IEnumerable<Cat>> Random()
-    {
-      var query = _db.Cats.AsQueryable(); //presents a list of Cats to "query"
+  //  [HttpGet("Random")]
+  //   public ActionResult<Cat> Random()
+  //   {
+  //     int countCatList = _db.Cats.Count();
 
-      Random rand = new Random();
-      int r = rand.Next(query.Count());
-      var randomCat = query[r];
-    
-      return randomCat.ToList();
+  //     Random rand = new Random();
+  //     int r = rand.Next(1, countCatList);
+  //     // var randomCat = countCatList[r];
+  //     return Ok(r); 
+  //   }
+
+  [HttpGet("Random")]
+  public async Task<ActionResult<Cat>> Random()
+  {
+    using(HttpClient client = new HttpClient())
+    {
+      var result = await client.GetAsync("https://localhost:5000/api/cats/random");
+      if (result.IsSuccessStatusCode)
+      {
+        var catListString = await result.Content.ReadAsStringAsync();
+        var catList = Newtonsoft.Json.JsonConvert.DeserializeObject<IEnumerable<Cat>>(catListString);
+        return catList.ElementAt(new Random().Next(0, catList.Count() - 1));
+      }
+      else
+      {
+        return NotFound();
+      }
     }
+  }
+
 
     [HttpGet]
     public ActionResult<IEnumerable<Cat>> Get(string breed, string gender, string name, int page, int size)
@@ -93,15 +114,3 @@ namespace AnimalShelter.Controllers
     }
   }
 }
-
-//  [HttpGet("Random")]
-//     public ActionResult<Cat> Random()
-//     {
-//       var query = _db.Cats.Count();
-
-//       Random rand = new Random();
-//       int r = rand.Next(query);
-//       // var randomCat = query[r];
-//       string randomCat = r.ToString();
-//       return Ok(randomCat); 
-//     }
